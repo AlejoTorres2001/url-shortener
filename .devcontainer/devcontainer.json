@@ -1,0 +1,50 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.245.0/containers/javascript-node-postgres
+// Update the VARIANT arg in docker-compose.yml to pick a Node.js version
+{
+	"name": "Node.js & PostgreSQL",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
+	"workspaceFolder": "/workspace",
+	"forwardPorts": [5432],
+	// Configure tool-specific properties.
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+				"dbaeumer.vscode-eslint",
+				"ms-azuretools.vscode-docker",
+				"dbaeumer.vscode-eslint",
+				"GitHub.copilot",
+				"GitHub.vscode-pull-request-github",
+				"eamodio.gitlens",
+				"wix.vscode-import-cost",
+				"moalamri.inline-fold",
+				"Zignd.html-css-class-completion",
+				"ms-vscode.vscode-typescript-next",
+				"yzhang.markdown-all-in-one",
+				"cweijan.vscode-mysql-client2",
+				"christian-kohler.npm-intellisense",
+				"christian-kohler.path-intellisense",
+				"esbenp.prettier-vscode",
+				"Prisma.prisma",
+				"bradlc.vscode-tailwindcss",
+				"pflannery.vscode-versionlens",
+				"VisualStudioExptTeam.vscodeintellicode",
+				"kisstkondoros.vscode-gutter-preview",
+				"heybourn.headwind"
+			]
+		}
+	},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// This can be used to network with other containers or with the host.
+	// "forwardPorts": [3000, 5432],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "yarn install",
+
+	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "node"
+}

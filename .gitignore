@@ -34,6 +34,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 
+devcontainer.env
 
 #next identifiers
 *.identifier
