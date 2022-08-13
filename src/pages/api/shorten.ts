@@ -35,7 +35,7 @@ export default async function handler(
     let shortUrl = shortenUrl()
     let isUnique = await verfyShortenUrl(shortUrl)
     // If the url is not unique, create a new shortened url
-    while (!isUnique) {
+    while (!isUnique) { //does not sacale well with large amounts of urls
       shortUrl = shortenUrl()
       isUnique = await verfyShortenUrl(shortUrl)
     }
