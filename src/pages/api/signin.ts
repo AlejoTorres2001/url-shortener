@@ -1,6 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { findUser } from '../../server/services/findUser'
 import { createUser } from '../../server/services/createUser'
+import { getHash } from '../../server/services/getHash'
+
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
@@ -10,7 +12,7 @@ export default async function handler(
       .status(405)
       .json({ statusCode: 405, message: 'Method Not Allowed' })
   }
-  const { password, email } = req.body
+  const { password, email }: { password: string; email: string } = req.body
   if (!password) {
     return res
       .status(400)
@@ -22,13 +24,14 @@ export default async function handler(
       .json({ statusCode: 400, message: 'Missing userEmail' })
   }
   try {
-    const match = await findUser(email as string)
+    const match = await findUser(email)
     if (!match) {
+      const hashedPassword = await getHash(password, 10)
       const newUser = await createUser({
-        email: email as string,
-        password: password as string
+        email: email,
+        password: hashedPassword
       })
-      return res.status(200).json({ statusCode: 200, user: newUser })
+      return res.status(200).json({ statusCode: 200, user: newUser.email })
     }
     return res
       .status(401)
