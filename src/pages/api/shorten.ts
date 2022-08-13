@@ -2,6 +2,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { createUrl } from '../../server/services/createUrl'
 import { shortenUrl } from '../../server/services/shortUrl'
+import { verfyShortenUrl } from '../../server/services/verifyShortenUrl'
 
 export default async function handler(
   req: NextApiRequest,
@@ -22,7 +23,14 @@ export default async function handler(
       .json({ statusCode: 400, message: 'Missing userEmail' })
   }
   try {
-    const shortenedUrl = await shortenUrl(url)
+    let shortenedUrl = shortenUrl()
+    let isUnique = await verfyShortenUrl(shortenedUrl)
+    while (!isUnique) {
+      console.log('not unique!')
+      shortenedUrl = shortenUrl()
+      isUnique = await verfyShortenUrl(shortenedUrl)
+    }
+    console.log('it is unique!')
     const newUrl = await createUrl(
       shortenedUrl,
       url as string,
