@@ -1,5 +1,4 @@
 import { api } from '../api/axios'
-import { AxiosResponse } from 'axios'
 export type payload = {
   url: string
   userEmail: string
