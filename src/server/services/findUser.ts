@@ -12,4 +12,7 @@ export const findUser = async (email: string) => {
   } catch (error) {
     throw error
   }
+  finally {
+    client.$disconnect()
+  }
 }

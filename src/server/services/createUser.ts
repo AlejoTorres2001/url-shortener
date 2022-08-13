@@ -17,4 +17,7 @@ export async function createUser({email,password}:params){
   catch(error){
     throw error
   }
+  finally{
+    client.$disconnect()
+  }
 }
