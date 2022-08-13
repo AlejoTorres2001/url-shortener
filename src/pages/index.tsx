@@ -3,7 +3,7 @@ import Head from 'next/head'
 import useForm from '../hooks/useForm'
 
 const Home: NextPage = () => {
-  const {inputRef,EmailRef,handleSubmit,isSuccess,isError } = useForm()
+  const {inputRef,EmailRef,handleSubmit,isSuccess,isError,data } = useForm()
   return (
     <>
       <Head>
@@ -21,6 +21,11 @@ const Home: NextPage = () => {
             <input type="email" placeholder="email" ref={EmailRef} />
             <button type="submit">shorten</button>
           </form>
+        </div>
+        <div className="">
+          <h1>Your Shortened URL is</h1>
+          {isSuccess &&  <p>{data?.data.shortUrl}</p>}
+         
         </div>
       </main>
     </>
