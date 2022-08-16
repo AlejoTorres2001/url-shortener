@@ -1,13 +1,10 @@
-import { PrismaClient } from "@prisma/client"
+import { client } from '../client/client'
 
 export const verfyShortenUrl = async (shortenUrl: string): Promise<boolean> => {
-  const client = new PrismaClient()
   const urlRegisters = await client.link.findMany({
     where: {
-      shortUrl: shortenUrl,
-    },
+      shortUrl: shortenUrl
+    }
   })
-  client.$disconnect()
   return typeof urlRegisters !== 'undefined' && urlRegisters.length === 0
-
 }

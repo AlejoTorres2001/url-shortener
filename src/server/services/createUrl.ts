@@ -1,4 +1,4 @@
-import { PrismaClient } from '@prisma/client'
+import { client } from '../client/client'
 import { findUser } from './findUser'
 
 export const createUrl = async (
@@ -6,7 +6,6 @@ export const createUrl = async (
   url: string,
   userEmail: string
 ) => {
-  const client = new PrismaClient()
   const match = await findUser(userEmail)
   if (!match) {
     throw new Error('User not found')
@@ -18,6 +17,5 @@ export const createUrl = async (
       UserId: match.id
     }
   })
-  client.$disconnect()
   return newUrl
 }

@@ -1,18 +1,15 @@
-import { PrismaClient } from "@prisma/client"
+import { client } from '../client/client'
 
 export const findUser = async (email: string) => {
-  const client = new PrismaClient()
   try {
     const user = await client.user.findUnique({
       where: {
-        email,
-      },
+        email
+      }
     })
     return user
   } catch (error) {
     throw error
-  }
-  finally {
-    client.$disconnect()
+  } finally {
   }
 }

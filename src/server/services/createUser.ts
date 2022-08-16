@@ -1,23 +1,20 @@
-import {PrismaClient} from '@prisma/client'
+import { client } from '../client/client'
+
 type params = {
-  email: string,
+  email: string
   password: string
 }
-export async function createUser({email,password}:params){
-  const client = new PrismaClient()
-  try{
+export async function createUser({ email, password }: params) {
+  try {
     const user = await client.user.create({
-      data:{
+      data: {
         email,
         password
       }
     })
     return user
-  }
-  catch(error){
+  } catch (error) {
     throw error
-  }
-  finally{
-    client.$disconnect()
+  } finally {
   }
 }
