@@ -1,7 +1,7 @@
-import { client } from '../client/client'
+import { prisma } from '../client/client'
 
 export const verfyShortenUrl = async (shortenUrl: string): Promise<boolean> => {
-  const urlRegisters = await client.link.findMany({
+  const urlRegisters = await prisma.link.findMany({
     where: {
       shortUrl: shortenUrl
     }

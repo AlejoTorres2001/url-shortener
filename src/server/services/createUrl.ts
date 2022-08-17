@@ -1,4 +1,4 @@
-import { client } from '../client/client'
+import { prisma } from '../client/client'
 import { findUser } from './findUser'
 
 export const createUrl = async (
@@ -10,7 +10,7 @@ export const createUrl = async (
   if (!match) {
     throw new Error('User not found')
   }
-  const newUrl = await client.link.create({
+  const newUrl = await prisma.link.create({
     data: {
       url: url,
       shortUrl: shortUrl,

@@ -1,8 +1,8 @@
-import { client } from '../client/client'
+import { prisma } from '../client/client'
 
 export const findUser = async (email: string) => {
   try {
-    const user = await client.user.findUnique({
+    const user = await prisma.user.findUnique({
       where: {
         email
       }

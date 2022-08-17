@@ -1,4 +1,4 @@
-import { client } from '../client/client'
+import { prisma } from '../client/client'
 
 type params = {
   email: string
@@ -6,7 +6,7 @@ type params = {
 }
 export async function createUser({ email, password }: params) {
   try {
-    const user = await client.user.create({
+    const user = await prisma.user.create({
       data: {
         email,
         password
