@@ -8,9 +8,9 @@ const UrlForm = () => {
   return (
     <form id="msform">
   <ul id="progressbar">
-    <li className="active">SignUp</li>
-    <li className=''>SignIn</li>
-    <li className=''>Short your URL</li>
+    <li className={`${activeFieldset >= 1 ? 'active' : ''}`}>SignUp</li>
+    <li className={`${activeFieldset >= 2 ? 'active' : ''}`}>SignIn</li>
+    <li className={`${activeFieldset >= 3 ? 'active' : ''}`}>Short your URL</li>
   </ul>
   {activeFieldset === 1 && (
     <RegisterUserFieldSet setActiveFieldset={setActiveFieldset} />
