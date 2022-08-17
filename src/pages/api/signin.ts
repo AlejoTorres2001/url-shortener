@@ -35,7 +35,7 @@ export default async function handler(
     }
     return res
       .status(401)
-      .json({ statusCode: 401, error: 'User already exists' })
+      .json({ statusCode: 401, message: 'User already exists' })
   } catch (error: any) {
     return res.status(500).json({ statusCode: 500, message: error.message })
   }
