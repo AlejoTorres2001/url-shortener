@@ -1,30 +1,13 @@
 import { useMutation } from '@tanstack/react-query'
 import React, { useRef } from 'react'
-import { logInPayload, registerFieldProps } from '../hooks/useLogInField'
-import { LogInUser } from '../services/LogInUser'
+import useLogInField, {
+  registerFieldProps
+} from '../hooks/useLogInField'
+
 
 const LogInUserFieldSet = ({ setActiveFieldset }: registerFieldProps) => {
-  const EmailRef = useRef() as React.MutableRefObject<HTMLInputElement>
-  const passwordRef = useRef() as React.MutableRefObject<HTMLInputElement>
-  const { mutate, isError } = useMutation(
-    ({ userEmail, password }: logInPayload) =>
-      LogInUser({ userEmail, password }),
-
-    {
-      onSuccess: () => {
-        EmailRef.current.value = ''
-        passwordRef.current.value = ''
-        // set the session here
-        setActiveFieldset(3)
-      }
-    }
-  )
-  const handleUserLogIn = async (e: React.FormEvent) => {
-    e.preventDefault()
-    const userEmail: string = EmailRef.current.value
-    const password: string = passwordRef.current.value
-    mutate({ userEmail, password })
-  }
+  const { EmailRef, passwordRef, handleUserLogIn, isSuccess, isError, data } =
+    useLogInField({ setActiveFieldset })
   return (
     <fieldset>
       <h2 className="fs-title">Log in with your Account</h2>

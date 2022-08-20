@@ -23,7 +23,7 @@ export default async function handler(
     try {
       const match = await CompareHashes(password, userRegister.password)
       if (match) {
-        res.status(200).json({ message: 'user logged in' })
+        res.status(200).json({ message: 'user logged in',email:userRegister.email,id:userRegister.id })
         return
       }
     } catch (error: any) {
