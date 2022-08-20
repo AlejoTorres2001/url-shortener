@@ -21,7 +21,10 @@ const useLogInField = ({ setActiveFieldset }: registerFieldProps) => {
       onSuccess: (data) => {
         setUserState({
           isLoggedIn: true,
-          user: data.user
+          user: {
+            email: data.email,
+            id: data.id,
+          }
         })
         EmailRef.current.value = ''
         passwordRef.current.value = ''
