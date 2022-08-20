@@ -1,5 +1,4 @@
 import { NextPage } from 'next'
-import { useRouter } from 'next/router'
 import React from 'react'
 import { prisma } from '../server/client/client'
 const Shortened: NextPage = () => {
