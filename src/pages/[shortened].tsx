@@ -7,7 +7,11 @@ const Shortened: NextPage = () => {
 
 export default Shortened
 
-export async function getServerSideProps({ params }:{params: {shortened: string}}) {
+export async function getServerSideProps({
+  params
+}: {
+  params: { shortened: string }
+}) {
   const { shortened } = params
   const shortenedUrl = await prisma.link.findUnique({
     where: {
@@ -16,11 +20,20 @@ export async function getServerSideProps({ params }:{params: {shortened: string}
   })
   if (!shortenedUrl) {
     return {
-     redirect: {
-        destination: '/',
+      redirect: {
+        destination: '/'
+      }
     }
   }
-}
+
+  prisma.link.update({
+    where: {
+      shortUrl: shortened
+    },
+    data: {
+      timesUsed: shortenedUrl.timesUsed + 1
+    }
+  })
   return {
     redirect: {
       destination: shortenedUrl.url
