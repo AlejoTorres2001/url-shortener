@@ -10,7 +10,7 @@ const RegisterUserFieldSet = ({ setActiveFieldset }: registerFieldProps) => {
     isError
   } = useRegisterField({ setActiveFieldset })
   return (
-    <fieldset>
+    <fieldset className='register-fieldset'>
       <h2 className="fs-title">Create your account</h2>
       <h3 className="fs-subtitle">This will only take you seconds</h3>
       <input ref={EmailRef} type="text" name="email" placeholder="Email" />
@@ -34,7 +34,7 @@ const RegisterUserFieldSet = ({ setActiveFieldset }: registerFieldProps) => {
         onClick={HandleUserRegister}
       />
       {isError && <div>UPS!theres been an error</div>}
-      <a onClick={() => setActiveFieldset(2)}>already have an account?</a>
+      <a className='register-fieldset-link' onClick={() => setActiveFieldset(2)}>already have an account?</a>
     </fieldset>
   )
 }

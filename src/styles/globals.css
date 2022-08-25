@@ -60,9 +60,11 @@ body {
 }
 .fs-subtitle {
   font-weight: normal;
-  font-size: 13px;
-  color: #666;
   margin-bottom: 20px;
+  text-decoration: none;
+  color: #2C3E50;
+  font-size: 13px;
+  
 }
 #progressbar {
   margin-bottom: 30px;
@@ -106,4 +108,27 @@ body {
 #progressbar li.active:before,  #progressbar li.active:after{
   background: #27AE60;
   color: white;
+}
+.register-fieldset{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.register-fieldset-link{
+  text-decoration: none;
+  color: #2C3E50;
+  font-size: 13px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+.register-fieldset-link:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}
+.error{
+  color: red;
+  font-size: 13px;
+  font-weight: bold;
+  margin-top: 10px;
 }

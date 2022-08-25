@@ -2,7 +2,7 @@ import React from 'react'
 import useUrlField, { urlFieldProps } from '../hooks/useUrlField'
 
 const UrlFieldSet = ({ setActiveFieldset }: urlFieldProps) => {
-  const { urlRef, handleSendUrl, isSuccess, isError, data } = useUrlField()
+  const { urlRef, handleSendUrl, isSuccess, isError, data,isFieldEmpty } = useUrlField()
   return (
     <fieldset>
       <h2 className="fs-title">Short your Url</h2>
@@ -30,6 +30,8 @@ const UrlFieldSet = ({ setActiveFieldset }: urlFieldProps) => {
       {isSuccess && (
         <div>{window.location.href.concat(data?.data?.shortUrl as string)}</div>
       )}
+      {isFieldEmpty && <div className='error'>Please fill in the URL field</div>}
+      {isError && <div className='error'>UPS! theres been an error</div>}
     </fieldset>
   )
 }
