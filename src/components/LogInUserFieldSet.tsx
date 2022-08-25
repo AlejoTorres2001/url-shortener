@@ -1,21 +1,25 @@
 import { useMutation } from '@tanstack/react-query'
 import React, { useRef } from 'react'
-import useLogInField, {
-  registerFieldProps
-} from '../hooks/useLogInField'
-
+import useLogInField, { registerFieldProps } from '../hooks/useLogInField'
 
 const LogInUserFieldSet = ({ setActiveFieldset }: registerFieldProps) => {
-  const { EmailRef, passwordRef, handleUserLogIn, isSuccess, isError, data } =
+  const { EmailRef, passwordRef, handleUserLogIn, isError,areFieldsEmpty } =
     useLogInField({ setActiveFieldset })
   return (
     <fieldset>
       <h2 className="fs-title">Log in with your Account</h2>
       <h3 className="fs-subtitle">
-        We wont share your email,<b>Never</b>
+        We will not share your email,<b>Never</b>
       </h3>
-      <input ref={EmailRef} type="email" name="email" placeholder="Email" />
       <input
+        required
+        ref={EmailRef}
+        type="email"
+        name="email"
+        placeholder="Email"
+      />
+      <input
+        required
         ref={passwordRef}
         type="password"
         name="pass"
@@ -35,7 +39,8 @@ const LogInUserFieldSet = ({ setActiveFieldset }: registerFieldProps) => {
         value="Next"
         onClick={handleUserLogIn}
       />
-      {isError && <div>incorrect Username or password</div>}
+      {areFieldsEmpty && <div className='error'>You must enter your email and password</div>}
+      {isError && <div className='error'>incorrect Username or password</div>}
     </fieldset>
   )
 }
