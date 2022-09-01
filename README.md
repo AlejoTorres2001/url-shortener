@@ -1,34 +1,80 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div align="center">
+
+# URL-Shortener
+**This project is an URL shortener fully packed with a containerized dev environment using VsCode ````DevContainers```` abstraction on top of Dockers ````Dev Environments````**
+
+</div>
+
+
+
+
+<div align="center">
+
+![](https://img.shields.io/badge/Contributions-Welcome-brightgreen.svg)
+![](https://img.shields.io/badge/Maintained%3F-Yes-brightgreen.svg)
+
+***Built with NextJs, It can be used programmatically through its REST API or with a UI already provided***
+
+</div>
+
+<div align="center">
+
+## Tech Stack
+
+<img  alt="TS"  src="https://shields.io/badge/TypeScript-3178C6?logo=TypeScript&logoColor=FFF&style=flat-square" />
+<img  alt="Next.js"  src="https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" />
+<img alt="Postgres" src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white" />
+<img alt="Prisma" src="https://img.shields.io/badge/Prisma-16A394?style=for-the-badge&logo=prisma&logoColor=black" />
+
+
+</div>
 
 ## Getting Started
 
-First, run the development server:
+*It is highly recommended to Open this project inside its ````DevContainer````*
+  
+Install the dependencies:
 
-```bash
-npm run dev
-# or
-yarn dev
+```sh
+$ npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Run in dev mode:
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```sh
+$ npm run dev
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Contributing
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+<div align="center">
 
-## Learn More
+![Alt](https://repobeats.axiom.co/api/embed/8e26770096e5873fbb4c389f3920de5abdbb1165.svg "Repobeats analytics image")
 
-To learn more about Next.js, take a look at the following resources:
+</div>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+If you have a suggestion that would make this better, please fork the repo and create a Pull Request. You can also simply [open an issue](https://github.com/AlejoTorres2001/url-shortner/issues) with the tag *enhancement*.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Don't forget to **give the project a star ⭐!** 
 
-## Deploy on Vercel
+1. Fork the project
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. Clone the repository
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```bash
+git clone https://github.com/@username/url-shortner
+```
+
+3. Create your Feature Branch
+
+```bash
+git checkout -b feature/AmazingFeature
+```
+
+4. Push to the Branch
+
+```bash
+git push origin feature/AmazingFeature
+```
+
+5. Open a Pull Request
