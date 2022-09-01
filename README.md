@@ -21,7 +21,7 @@
 
 ## Tech Stack
 
-<img  alt="TS"  src="https://shields.io/badge/TypeScript-3178C6?logo=TypeScript&logoColor=FFF&style=flat-square" />
+<img  alt="TS"  src="https://shields.io/badge/TypeScript-3178C6?logo=TypeScript&logoColor=FFF&style=for-the-badge" />
 <img  alt="Next.js"  src="https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" />
 <img alt="Postgres" src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white" />
 <img alt="Prisma" src="https://img.shields.io/badge/Prisma-16A394?style=for-the-badge&logo=prisma&logoColor=black" />
